@@ -7,6 +7,7 @@
 Official repository for the paper "ArtifactsBench: Bridging the Visual-Interactive Gap in LLM Code Generation Evaluation"
 
 
+
 ## Environment Setup
 
 ```bash
@@ -119,6 +120,17 @@ python3 src/infer_qvl.py \
 * **tokenizer\_dir**: The directory for the tokenizer model, to prevent an excessive number of tokens.
 * **ip\_file\_path**: The path to the file containing the IP addresses or IP list of the machines for distributed processing (e.g., `pssh.hosts`).
 * **num\_processes**: The number of processes to use for inference (e.g., `16` processes).
+
+
+## Results
+
+The official leaderboard will be released shortly.
+
+<!-- ![alt text](img/main_results_overview.png) -->
+<div style="text-align: center;">
+    <img src="./img/main_results_overview.png" alt="Code Generation Live Evaluation" class="teaser-image"
+    width="40%" />
+</div>
 
 
 ## Citation
