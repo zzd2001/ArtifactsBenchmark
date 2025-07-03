@@ -305,6 +305,25 @@ def main():
 
     print(f"Processing completed in {time.time() - start_time:.2f} seconds.")
 
+    # Calculate average scores and lengths
+    avg_mllm_score = 0
+    error_count = 0
+    avg_len = 0
+    answer_count = 0
+    for data in processed_data:
+        try:
+            avg_mllm_score += float(data['gemini_ans'])
+            answer_str = get_answer(data)
+            if 'model_infer_think' in data:
+                answer_str = data['model_infer_think'] + answer_str
+            avg_len += len(answer_str)
+            answer_count += 1
+        except:
+            error_count += 1
+    print(f"Average MLLM score: {avg_mllm_score/answer_count:.4f}")
+    print(f"Average answer length: {avg_len/answer_count:.2f}")
+    print(f"Error count: {error_count}")
+
 
 if __name__ == "__main__":
     main()

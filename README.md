@@ -7,10 +7,11 @@
 ---
 
 <p align="center">
-  <a href="https://artifactsbenchmark.github.io/"><b>Project Page</b></a> •
-  <a href="https://arxiv.org/abs/xxxx.xxxxx"><b>Paper</b></a> •
-  <a href="#-leaderboard"><b>Leaderboard</b></a> •
-  <a href="#-citation"><b>Citation</b></a>
+    <a href="https://arxiv.org/abs/xxxx.xxxxx">📖 Paper</a> •
+    <a href="https://artifactsbenchmark.github.io/">🏠 Home Page</a> •
+    <a href="https://huggingface.co/datasets/tencent/ArtifactsBenchmark/">💻 Data </a> •
+    <a href="https://artifactsbenchmark.github.io/leaderboard.html">🏆 Leaderboard</a> •
+    <a href="#-citation"><b>📜 Citation</b></a>
 </p>
 
 <div align="center">
