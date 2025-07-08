@@ -11,7 +11,7 @@
     <a href="https://artifactsbenchmark.github.io/">🏠 Home Page</a> •
     <a href="https://huggingface.co/datasets/tencent/ArtifactsBenchmark/">💻 Data </a> •
     <a href="https://artifactsbenchmark.github.io/leaderboard.html">🏆 Leaderboard</a> •
-    <a href="#-citation"><b>📜 Citation</b></a>
+    <a href="#citation"><b>📜 Citation</b></a>
 </p>
 
 <div align="center">
@@ -218,6 +218,7 @@ The following are the main results on ArtifactsBench, scored by the `Gemini-2.5-
 *   **GAME**: Game, **SVG**: SVG Generation, **WEB**: Web Application, **SI**: Simulation, **MS**: Management System
 *   **AVG**: Global Average Score
 
+<a id="citation"></a>
 ## Citation
 
 If you find our project helpful, please cite:
