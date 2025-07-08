@@ -186,6 +186,8 @@ python3 src/infer_qvl.py \
 
 ## 🏆 Leaderboard
 
+For the latest results, please visit the <a href="https://artifactsbenchmark.github.io/leaderboard.html">live leaderboard</a>.
+
 The following are the main results on ArtifactsBench, scored by the `Gemini-2.5-Pro-0506` referee. A higher score indicates better overall capability in generating visual and interactive artifacts.
 
 <div align="center">
