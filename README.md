@@ -7,7 +7,7 @@
 ---
 
 <p align="center">
-    <a href="https://arxiv.org/abs/xxxx.xxxxx">📖 Paper</a> •
+    <a href="https://arxiv.org/abs/2507.04952">📖 Paper</a> •
     <a href="https://artifactsbenchmark.github.io/">🏠 Home Page</a> •
     <a href="https://huggingface.co/datasets/tencent/ArtifactsBenchmark/">💻 Data </a> •
     <a href="https://artifactsbenchmark.github.io/leaderboard.html">🏆 Leaderboard</a> •
