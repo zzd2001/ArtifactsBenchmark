@@ -186,6 +186,8 @@ python3 src/infer_qvl.py \
 
 ## 🏆 Leaderboard
 
+For the latest results, please visit the <a href="https://artifactsbenchmark.github.io/leaderboard.html">live leaderboard</a>.
+
 The following are the main results on ArtifactsBench, scored by the `Gemini-2.5-Pro-0506` referee. A higher score indicates better overall capability in generating visual and interactive artifacts.
 
 <div align="center">
@@ -224,12 +226,14 @@ The following are the main results on ArtifactsBench, scored by the `Gemini-2.5-
 If you find our project helpful, please cite:
 
 ```bibtex
-@misc{tencent2025artifactsbenchbridgingvisual,
-    title={ArtifactsBench: Bridging the Visual-Interactive Gap in LLM Code Generation Evaluation}, 
-    author={Tencent Hunyuan Team},
-    year={2025},
-    archivePrefix={arXiv},
-    primaryClass={cs.CL},
+@misc{zhang2025artifactsbenchbridgingvisualinteractivegap,
+      title={ArtifactsBench: Bridging the Visual-Interactive Gap in LLM Code Generation Evaluation}, 
+      author={Chenchen Zhang and Yuhang Li and Can Xu and Jiaheng Liu and Ao Liu and Shihui Hu and Dengpeng Wu and Guanhua Huang and Kejiao Li and Qi Yi and Ruibin Xiong and Haotian Zhu and Yuanxing Zhang and Yuhao Jiang and Yue Zhang and Zenan Xu and Bohui Zhai and Guoxiang He and Hebin Li and Jie Zhao and Le Zhang and Lingyun Tan and Pengyu Guo and Xianshu Pang and Yang Ruan and Zhifeng Zhang and Zhonghu Wang and Ziyan Xu and Zuopu Yin and Wiggin Zhou and Chayse Zhou and Fengzong Lian},
+      year={2025},
+      eprint={2507.04952},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL},
+      url={https://arxiv.org/abs/2507.04952}, 
 }
 ```
 
