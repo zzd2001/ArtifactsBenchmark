@@ -282,6 +282,7 @@ If you find our project helpful, please cite:
 *   Fengzong Lian, Tencent
 *   `{wigginzhou,chaysezhou,faxonlian}@tencent.com`
 
+If you encounter any issues during testing, please contact adamwzhang@tencent.com.
 ## License
 
 This repository is licensed under the terms of the [LICENSE](LICENSE) file.
