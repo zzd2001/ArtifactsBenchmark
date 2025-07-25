@@ -30,6 +30,43 @@ To bridge this gap, we introduce **ArtifactsBench**, a new benchmark and paradig
 
 ArtifactsBench is open-sourced, including the benchmark with **1,825 diverse tasks**, the evaluation harness, and baseline results, to provide the community with a scalable and accurate tool to accelerate the development of user-centric generative models.
 
+## 🚀 Latest Updates & Release Notes
+
+### **Version 1.1 - July 25, 2025** 🔥🔥🔥
+
+We're excited to announce important updates to ArtifactsBench that significantly improve reproducibility, expand model coverage, and enhance evaluation stability:
+
+#### **Key Updates:**
+
+🔧 **Unified Judge Model**: Migrated from Gemini-2.5-Pro-Preview-0605 (now deprecated) to the stable **Gemini-2.5-Pro** for all evaluations, ensuring consistent reproducibility for research communities.
+
+🆕 **Expanded Model Coverage**: Added comprehensive evaluation of latest high-quality open-source code models to keep pace with rapid developments in the field.
+
+📊 **Enhanced Transparency**: Released intermediate reasoning results and evaluation data to improve research confidence and full reproducibility.
+
+#### **🎯 Full Open-Source & Complete Reproducibility:**
+
+**🔓 100% Data Open-Source**: All evaluation data, model outputs, judge reasoning, and intermediate results are completely open-sourced - no proprietary data withheld.
+
+**♻️ Complete Paper Reproducibility**: Every result in our paper can be fully reproduced using the provided data and scripts - we guarantee 100% reproducibility.
+
+**🔍 Full Transparency**: From raw model outputs to final scores, every step of our evaluation pipeline is transparent and auditable.
+
+#### **Data Release:**
+
+All intermediate model results, judge model inference results, and reasoning chains from this update are available at `dataset/release_data_20250725/` for complete transparency and reproducibility.
+
+#### **Updated Results Overview:**
+
+<div align="center">
+  <img src="figures/main_results_overview2.png" width="90%">
+</div>
+<p align="center">
+  <i>Figure: Latest ArtifactsBench results (July 2025) with expanded model coverage and unified Gemini-2.5-Pro evaluation.</i>
+</p>
+
+*For comparison, the previous results table is available in the [Leaderboard section](#-leaderboard).*
+
 ## Core Features
 
 -   **A Diverse and Hierarchical Benchmark Suite:** ArtifactsBench comprises a rich set of tasks derived from real-world applications, including component-based web development, SVG-based data visualization, and interactive mini-games. Tasks are stratified by complexity (simple, medium, hard) to robustly measure model capabilities across a meaningful difficulty gradient.
@@ -188,11 +225,23 @@ python3 src/infer_qvl.py \
 
 For the latest results, please visit the <a href="https://artifactsbenchmark.github.io/leaderboard.html">live leaderboard</a>.
 
-The following are the main results on ArtifactsBench, scored by the `Gemini-2.5-Pro-0506` referee. A higher score indicates better overall capability in generating visual and interactive artifacts.
+### **Current Results (Version 1.1)**
+
+The following are the main results on ArtifactsBench, scored by the unified `Gemini-2.5-Pro` referee. A higher score indicates better overall capability in generating visual and interactive artifacts.
+
+<div align="center">
+  <img src="figures/main_results_overview2.png" width="90%">
+</div>
+
+### **Previous Results (Version 1.0) - For Comparison**
+
+The following were the original results on ArtifactsBench, scored by the `Gemini-2.5-Pro-0506` referee. These results are preserved for historical comparison and reproducibility studies.
 
 <div align="center">
   <img src="figures/main_results_overview.png" width="90%">
 </div>
+
+#### **Detailed Previous Results Table:**
 
 | **Model**                 | **AVG** | **SV**  | **MMD** | **HD**  | **II**  | **GAME** | **SVG** | **WEB** | **SI**  | **MS**  |
 | ------------------------ | :-----: | :-----: | :-----: | :-----: | :-----: | :------: | :-----: | :-----: | :-----: | :-----: |
@@ -283,6 +332,22 @@ If you find our project helpful, please cite:
 *   `{wigginzhou,chaysezhou,faxonlian}@tencent.com`
 
 If you encounter any issues during testing, please contact adamwzhang@tencent.com.
+
+## Data Availability & Reproducibility
+
+**🔓 FULLY OPEN-SOURCE**: All intermediate evaluation results and reasoning data are completely open-sourced and available for download to ensure full reproducibility of our benchmark results. The updated evaluation pipeline with Gemini-2.5-Pro is fully automated and deterministic.
+
+**📁 Data Location**: All intermediate model results and judge model inference results from the July 25, 2025 update are stored in `dataset/release_data_20250725/`, ensuring complete paper transparency and high reproducibility.
+
+**🎯 100% Reproducibility Guarantee**: We provide complete reproducibility - every table, figure, and result in our paper can be fully reproduced using our open-sourced data and evaluation scripts.
+
+For researchers interested in:
+- **Reproducing our results**: All evaluation scripts and intermediate data are provided in `dataset/release_data_20250725/`
+- **Extending the benchmark**: The framework is designed to easily accommodate new tasks and models
+- **Comparing with custom models**: Use our standardized evaluation pipeline for consistent comparisons
+- **Analyzing judge reasoning**: Access detailed judge model inference logs and reasoning chains
+- **Verifying our claims**: Complete audit trail from raw outputs to final scores
+
 ## License
 
 This repository is licensed under the terms of the [LICENSE](LICENSE) file.
