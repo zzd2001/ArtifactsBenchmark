@@ -13,6 +13,7 @@ data = {
     'Model': [
         'Gemini-2.5-Pro',
         'Claude Sonnet 4 (20250514)',
+        'Qwen3-235B-A22B-Thinking-2507',
         'o3-2025-04-16',
         'Claude 3.7 Sonnet (20250219)',
         'Qwen3-235B-A22B-Instruct-2507',
@@ -21,14 +22,17 @@ data = {
         'Qwen3-Coder-480B-A35B-Instruct',
         'GPT-4.1-2025-04-14',
         'DeepSeek-V3-0324',
+        'DeepSeek-R1',
         'Qwen3-235B-A22B',
         'hunyuan-A13B',
         'Claude 3.5 Sonnet (20241022)',
-        'KAT-V1'
+        'KAT-V1-40B',
+        'GPT-4O'
     ],
     'Score': [
         57.74,
         57.28,
+        55.01,
         54.04,
         51.32,
         50.62,
@@ -37,14 +41,17 @@ data = {
         47.15,
         45.95,
         43.50,
+        41.41,
         41.09,
         40.95,
         39.85,
-        35.21
+        35.21,
+        33.54,
     ],
     'Type': [
         'Closed-Source',  # Gemini-2.5-Pro
         'Closed-Source',  # Claude Sonnet 4 (20250514)
+        'Open-Source',    # Qwen3-235B-A22B-Thinking-2507
         'Closed-Source',  # o3-2025-04-16
         'Closed-Source',  # Claude 3.7 Sonnet (20250219)
         'Open-Source',    # Qwen3-235B-A22B-Instruct-2507
@@ -53,10 +60,12 @@ data = {
         'Open-Source',    # Qwen3-Coder-480B-A35B-Instruct
         'Closed-Source',  # GPT-4.1-2025-04-14
         'Open-Source',    # DeepSeek-V3-0324
+        'Open-Source',    # DeepSeek-R1
         'Open-Source',    # Qwen3-235B-A22B
         'Open-Source',    # hunyuan-A13B
         'Closed-Source',  # Claude 3.5 Sonnet (20241022)
-        'Open-Source'     # KAT-V1
+        'Open-Source',     # KAT-V1
+        'Closed-Source',  # GPT4O
     ]
 }
 
@@ -93,7 +102,7 @@ ax.barh(y=y_pos, width=df['Score'], height=bar_height, color=colors)
 ax.invert_yaxis()  # highest score on top
 
 # Specify x-axis start at 25
-min_limit = 35 #25
+min_limit = 33 #25
 max_limit = df['Score'].max() * 1.01
 ax.set_xlim(min_limit, max_limit)
 
