@@ -32,6 +32,14 @@ ArtifactsBench is open-sourced, including the benchmark with **1,825 diverse tas
 
 ## 🚀 Latest Updates & Release Notes
 
+### **Version 1.1 - July 30, 2025** 🔥🔥🔥
+
+#### **Key Updates:**
+
+🆕 **Model Coverage Expansion**: Added comprehensive evaluation of **GLM-4.5** to expand our coverage of state-of-the-art language models and provide more comprehensive benchmarking insights.
+
+📊 **Enhanced Visualization**: Introduced a new analysis chart `artifactsbench_vs_model_infer.png` that visualizes the relationship between model inference scores and model response lengths, providing deeper insights into model behavior patterns.
+
 ### **Version 1.1 - July 25, 2025** 🔥🔥🔥
 
 We're excited to announce important updates to ArtifactsBench that significantly improve reproducibility, expand model coverage, and enhance evaluation stability:
@@ -57,6 +65,13 @@ We're excited to announce important updates to ArtifactsBench that significantly
 All intermediate model results, judge model inference results, and reasoning chains from this update are available at `dataset/release_data_20250725/` for complete transparency and reproducibility.
 
 #### **Updated Results Overview:**
+
+<div align="center">
+  <img src="figures/artifactsbench_vs_model_infer.png" width="90%">
+</div>
+<p align="center">
+  <i>Figure: Analysis of model inference scores versus response lengths on ArtifactsBench, revealing the relationship between model performance and output verbosity patterns.</i>
+</p>
 
 <div align="center">
   <img src="figures/main_results_overview2.png" width="90%">
