@@ -27,6 +27,7 @@ data = {
     "Qwen3-235B-A22B-Thinking-2507": {"AVG": 55.01, "IFLEN": 34357.84, "category": "open"},
     "o3-2025-04-16": {"AVG": 54.04, "IFLEN": 0, "category": "closed"},
     "GLM-4.5": {"AVG": 51.33, "IFLEN": 21854.10, "category": "open"},
+    "GLM-4.5_Air": {"AVG": 48.90, "IFLEN": 20925.02, "category": "open"},
     "Claude 3.7 Sonnet (20250219)": {"AVG": 51.32, "IFLEN": 15480.06, "category": "open"},
     "Qwen3-235B-A22B-Instruct-2507": {"AVG": 50.62, "IFLEN": 20765.47, "category": "open"},
     "DeepSeek-R1-0528": {"AVG": 47.73, "IFLEN": 19215.71, "category": "open"},

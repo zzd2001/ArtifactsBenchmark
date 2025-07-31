@@ -16,6 +16,7 @@ data = {
         'Qwen3-235B-A22B-Thinking-2507',
         'o3-2025-04-16',
         'GLM-4.5',
+        'GLM-4.5_Air',
         'Claude 3.7 Sonnet (20250219)',
         'Qwen3-235B-A22B-Instruct-2507',
         'DeepSeek-R1-0528',
@@ -36,6 +37,7 @@ data = {
         55.01,
         54.04,
         51.33,
+        48.90,
         51.32,
         50.62,
         47.73,
@@ -56,6 +58,7 @@ data = {
         'Open-Source',    # Qwen3-235B-A22B-Thinking-2507
         'Closed-Source',  # o3-2025-04-16
         'Open-Source',    # GLM-4.5
+        'Open-Source',    # GLM-4.5_Air
         'Closed-Source',  # Claude 3.7 Sonnet (20250219)
         'Open-Source',    # Qwen3-235B-A22B-Instruct-2507
         'Open-Source',    # DeepSeek-R1-0528
