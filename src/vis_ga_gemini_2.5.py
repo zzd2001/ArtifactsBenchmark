@@ -25,6 +25,7 @@ data = {
         'GPT-4.1-2025-04-14',
         'DeepSeek-V3-0324',
         'DeepSeek-R1',
+        'Qwen3-Coder-30B-A3B-Instruct',
         'Qwen3-235B-A22B',
         'hunyuan-A13B',
         'Claude 3.5 Sonnet (20241022)',
@@ -46,6 +47,7 @@ data = {
         45.95,
         43.50,
         41.41,
+        41.16,
         41.09,
         40.95,
         39.85,
@@ -67,6 +69,7 @@ data = {
         'Closed-Source',  # GPT-4.1-2025-04-14
         'Open-Source',    # DeepSeek-V3-0324
         'Open-Source',    # DeepSeek-R1
+        'Open-Source',    # Qwen3-Coder-30B-A3B-Instruct
         'Open-Source',    # Qwen3-235B-A22B
         'Open-Source',    # hunyuan-A13B
         'Closed-Source',  # Claude 3.5 Sonnet (20241022)

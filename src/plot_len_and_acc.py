@@ -36,6 +36,7 @@ data = {
     "GPT-4.1-2025-04-14": {"AVG": 45.95, "IFLEN": 7290.94, "category": "closed"},
     "DeepSeek-V3-0324": {"AVG": 43.50, "IFLEN": 11443.06, "category": "open"},
     "DeepSeek-R1": {"AVG": 41.41, "IFLEN": 10751.63, "category": "open"},
+    "Qwen3-Coder-30B-A3B-Instruct": {"AVG": 41.16, "IFLEN": 18087.12, "category": "open"},
     "Qwen3-235B-A22B": {"AVG": 41.09, "IFLEN": 19314.92, "category": "open"},
     "hunyuan-A13B": {"AVG": 40.95, "IFLEN": 17924.89, "category": "open"},
     "Claude 3.5 Sonnet (20241022)": {"AVG": 39.85, "IFLEN": 6391.96, "category": "closed"},
@@ -83,6 +84,71 @@ ax.add_patch(rect)
 
 # Advanced label positioning to minimize overlaps
 used_positions = []  # Track used positions to avoid overlaps
+
+def shorten_model_name(model_name):
+    """Shorten long model names for better display"""
+    # Handle specific long model names
+    name_mapping = {
+        "Qwen3-Coder-30B-A3B-Instruct": "Qwen3-Coder-30B",
+        "Qwen3-235B-A22B": "Qwen3-235B",
+        "hunyuan-A13B": "Hunyuan-A13B",
+        "Qwen3-235B-A22B-Thinking-2507": "Qwen3-235B-Thinking",
+        "Qwen3-235B-A22B-Instruct-2507": "Qwen3-235B-Instruct",
+        "Qwen3-Coder-480B-A35B-Instruct": "Qwen3-Coder-480B",
+        "Claude Sonnet 4 (20250514)": "Claude Sonnet 4",
+        "Claude 3.7 Sonnet (20250219)": "Claude 3.7 Sonnet",
+        "Claude 3.5 Sonnet (20241022)": "Claude 3.5 Sonnet",
+    }
+    
+    return name_mapping.get(model_name, model_name)
+
+def get_special_position_for_overlapping_models(model_name, x, y, used_positions, ax):
+    """Handle special positioning for the three overlapping models"""
+    # Define specific positions for the three overlapping models
+    special_positions = {
+        "Qwen3-Coder-30B-A3B-Instruct": (-12, 8, 'right', 'bottom'),   # Top-left, much closer
+        "Qwen3-235B-A22B": (15, 0, 'left', 'center'),                  # Right, closer
+        "hunyuan-A13B": (-12, -8, 'right', 'top'),                      # Bottom-left, much closer
+    }
+    
+    if model_name in special_positions:
+        offset_x, offset_y, ha, va = special_positions[model_name]
+        
+        # Calculate and store bounding box
+        display_name = shorten_model_name(model_name)
+        text_width, text_height = get_text_bbox_size(display_name, fontsize=8)
+        x_range = ax.get_xlim()[1] - ax.get_xlim()[0]
+        y_range = ax.get_ylim()[1] - ax.get_ylim()[0]
+        text_width_data = text_width * x_range / 800
+        text_height_data = text_height * y_range / 600
+        
+        label_x_data = x + offset_x * x_range / 800
+        label_y_data = y + offset_y * y_range / 600
+        
+        if ha == 'left':
+            label_left = label_x_data
+            label_right = label_x_data + text_width_data
+        elif ha == 'right':
+            label_left = label_x_data - text_width_data
+            label_right = label_x_data
+        else:  # center
+            label_left = label_x_data - text_width_data / 2
+            label_right = label_x_data + text_width_data / 2
+            
+        if va == 'bottom':
+            label_bottom = label_y_data
+            label_top = label_y_data + text_height_data
+        elif va == 'top':
+            label_bottom = label_y_data - text_height_data
+            label_top = label_y_data
+        else:  # center
+            label_bottom = label_y_data - text_height_data / 2
+            label_top = label_y_data + text_height_data / 2
+        
+        used_positions.append((label_left, label_right, label_bottom, label_top))
+        return offset_x, offset_y, ha, va
+    
+    return None
 
 def get_text_bbox_size(text, fontsize=8):
     """Estimate text bounding box size"""
@@ -212,7 +278,7 @@ for i, (model, vals) in enumerate(unknown_models):
     x = unknown_x
     y = vals["AVG"]
     
-    display_name = model
+    display_name = shorten_model_name(model)
     
     # Alternate left and right positioning for unknown models
     if i % 2 == 0:  # Even index - put on the left
@@ -273,10 +339,16 @@ for model, vals in known_models:
     x = vals["IFLEN"]
     y = vals["AVG"]
     
-    display_name = model
+    display_name = shorten_model_name(model)
     
-    # Use advanced positioning for known inference length models
-    offset_x, offset_y, ha, va = find_non_overlapping_position(x, y, display_name, used_positions, ax)
+    # Check if this is one of the special overlapping models
+    special_pos = get_special_position_for_overlapping_models(model, x, y, used_positions, ax)
+    
+    if special_pos:
+        offset_x, offset_y, ha, va = special_pos
+    else:
+        # Use advanced positioning for other known inference length models
+        offset_x, offset_y, ha, va = find_non_overlapping_position(x, y, display_name, used_positions, ax)
     
     ax.annotate(display_name, (x, y), xytext=(offset_x, offset_y), 
                textcoords='offset points', fontsize=8, fontweight='bold',
@@ -333,6 +405,11 @@ for spine in ax.spines.values():
 
 plt.show()
 
+print("图表已生成！标签重叠问题已修复：")
+print("- Qwen3-Coder-30B-A3B-Instruct -> Qwen3-Coder-30B (左上角，位置已调整)")
+print("- Qwen3-235B-A22B -> Qwen3-235B (右边)")  
+print("- hunyuan-A13B -> Hunyuan-A13B (左下角，位置已调整)")
+
 # Optional: Save in publication formats (uncomment when needed)
-# plt.savefig('artifactsbench_analysis.pdf', dpi=300, bbox_inches='tight')
-# plt.savefig('artifactsbench_analysis.png', dpi=300, bbox_inches='tight')
+# plt.savefig('src/artifactsbench_analysis.pdf', dpi=300, bbox_inches='tight')
+# plt.savefig('src/artifactsbench_analysis.png', dpi=300, bbox_inches='tight')
